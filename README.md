@@ -4,6 +4,8 @@
 
 This project focuses on implementing a machine learning model following the machine learning life cycle. The primary goal is to predict job ratings based on employee reviews from the Glassdoor dataset. The project will use text-based natural language processing (NLP) and numerical feature-based techniques to build a predictive model.
 
+---
+
 ## Project Structure
 
 ### 1. **Dataset**
@@ -25,8 +27,12 @@ The image below shows the top 16 companies with the most reviews in the Glassdoo
 
 Image source: Kaggle Notebook by *David Gauthier*
 
+---
+
 ### 2. **Problem Definition**
-The goal is to predict the **overall job rating** based on text reviews and other features. This is a **supervised classification problem** where the rating ranges from 1 to 5.
+The goal is to predict the **overall job rating** based on text reviews and other features. This is a **supervised classification problem** where the rating ranges from 1 to 5
+
+---
 
 ### 3. **Data Preparation**
 - Load and clean the dataset using **Pandas**.
@@ -34,15 +40,24 @@ The goal is to predict the **overall job rating** based on text reviews and othe
 - Handle missing data, converting numerical columns into appropriate data types.
 - Perform **Natural Language Processing (NLP)** using **TF-IDF vectorization** on text reviews.
 
+---
+
 ### 4. **Machine Learning Model**
 The project uses a **Neural Network** model implemented using **TensorFlow/Keras**:
 - The model consists of an input layer, three hidden layers, and an output layer using the softmax activation function for classification.
 - Other models considered include **Logistic Regression** and **Random Forest Classifier**.
 
+---
+
 ### 5. **Model Training & Evaluation**
 - Train the model using 75% of the data, with 25% of the training data reserved for validation.
 - Evaluate the model's performance on the test set using accuracy, precision, recall, F1-score, and confusion matrix.
 - Perform hyperparameter tuning and model selection to improve performance.
+
+![Loss_Figure](./loss_figure.png)
+![Accuracy_Figure](./accuracy_figure.png)
+
+---
 
 ### 6. **Results**
 
@@ -67,6 +82,62 @@ The confusion matrix provides a detailed view of how predictions are distributed
   - There is significant spillover between adjacent ratings. For example, 46% of actual rating 3 instances are predicted as rating 4.
   - The model sometimes overestimates ratings, with 22% of actual rating 4 instances classified as rating 5 and 9% of rating 1 instances misclassified as rating 4.
 
+#### Sample Predictions
+
+Below are some examples of individual review predictions by the model:
+
+```
+Review #1:
+They could do a lot better. Work hours 9am–5pm. Poor training and development, no rewards, low salary and no encouragement to progress.
+Predicted Rating: 3
+Actual Rating: 2
+
+Review #2:
+Best working people and good environment. No cons — best environment company and nothing to say.
+Predicted Rating: 5
+Actual Rating: 5
+
+Review #3:
+Well-funded research with great guidance to students. Slow to react to changing circumstances (e.g. COVID).
+Predicted Rating: 5
+Actual Rating: 4
+
+Review #4:
+Great opportunities to learn new skills and grow within the company. None that I can think of.
+Predicted Rating: 5
+Actual Rating: 5
+
+Review #5:
+Amazing culture and lots of growth opportunities. A lot of layers and process.
+Predicted Rating: 5
+Actual Rating: 5
+
+Review #6:
+Great benefits, but illogical RIFs that make no sense.
+Predicted Rating: 5
+Actual Rating: 4
+
+Review #7:
+Work-life balance, kind officemates. Unfair management, not good for starters.
+Predicted Rating: 2
+Actual Rating: 3
+
+Review #8:
+Good clients and work environment. Career growth might be an issue unless you're good at selling.
+Predicted Rating: 4
+Actual Rating: 4
+
+Review #9:
+Loved my customers, easy job. Constantly taking trainings.
+Predicted Rating: 5
+Actual Rating: 4
+
+Review #10:
+Good benefits, gym, and cafe. Some teams are inefficient.
+Predicted Rating: 4
+Actual Rating: 4
+```
+
 **Interpretation and Next Steps**
 
 - **Model Strengths**: The model performs relatively well on ratings 4 and 5, with the highest correct classification percentages (62% and 54%, respectively). This suggests that the features used are effective for distinguishing higher ratings.
@@ -79,6 +150,8 @@ The confusion matrix provides a detailed view of how predictions are distributed
   - **Model Complexity**: Using more complex models or fine-tuning hyperparameters could reduce misclassifications, particularly between adjacent ratings.
 
 By addressing these areas, the model’s accuracy and prediction precision could improve, leading to better differentiation between ratings.
+
+---
 
 ### 7. **Conclusion**
 This project demonstrates the full machine learning life cycle, from data preparation and feature engineering to model training and evaluation. The model provides insights into how companies can improve employee satisfaction by understanding the factors contributing to overall job ratings.
